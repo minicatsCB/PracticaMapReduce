@@ -16,13 +16,18 @@ for line in sys.stdin:
 		print("Different number of attributes in line " + str(j))
 		j = j + 1
 		continue;
-	
+
+	# Check if any of the words in the line that should not contain any string, contains one
+	# If that occurs, skip the line	
 	r = re.compile("[a-zA-Z]")
 	result1 = filter(r.match, str(words[0:2]))
 	result2 = filter(r.match, str(words[7:30]))
 	if((result1 != "" or result2 != "") and j != 0):
 		print("Fila " + str(j) + " contiene string sin deberlo")
 		continue;
+
+	# Delete any leading or trailing whitspace in the words of the line
+	map(str.strip, words)
 
 	# print(str(j) + str(words))
 
