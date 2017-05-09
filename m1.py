@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 
 import sys
+import re
 
 j = 0
 # input comes from STDIN (standard input)
 for line in sys.stdin:
+	i = 0 # Number of words that has been processed
 	# split the line into words
 	words = line.split(",")
 
@@ -14,18 +16,15 @@ for line in sys.stdin:
 		print("Different number of attributes in line " + str(j))
 		j = j + 1
 		continue;
+	
+	r = re.compile("[a-zA-Z]")
+	result1 = filter(r.match, str(words[0:2]))
+	result2 = filter(r.match, str(words[7:30]))
+	if((result1 != "" or result2 != "") and j != 0):
+		print("Fila " + str(j) + " contiene string sin deberlo")
+		continue;
 
-	# increase counters
-	i = 0 # Number of words that has been processed
-	for word in words:
-		# write the results to STDOUT (standard output);
-		# what we output here will be the input for the
-		# Reduce step, i.e. the input for reducer.py
-		#print("---------------------------- Palabra " + str(i) + " ------------------------")
-		#print '%s' % (word)
-		if(i == 30):
-			#print("--- Linea " + str(j) + " ---")
-			pass
-		i = i + 1
+	# print(str(j) + str(words))
+
 	j = j + 1
 
