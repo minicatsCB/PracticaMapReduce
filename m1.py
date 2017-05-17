@@ -13,7 +13,7 @@ for line in sys.stdin:
 	# Check if the line has a different number of attributes (in this case, 31)
 	# If that occurs, skip the line
 	if(len(words) != 31):
-		print("Different number of attributes in line " + str(j))
+		#print("Different number of attributes in line " + str(j))
 		j = j + 1
 		continue
 
@@ -23,19 +23,18 @@ for line in sys.stdin:
 	result1 = filter(r.match, str(words[0:2]))
 	result2 = filter(r.match, str(words[7:30]))
 	if((result1 != "" or result2 != "") and j != 0):
-		print("Fila " + str(j) + " contiene string sin deberlo")
+		#print("Fila " + str(j) + " contiene string sin deberlo")
+		j = j + 1
 		continue
 	
-	for word in words:
-		if(word != word.strip(' ')):
-			print("Spaces in line" + str(j) + ":" + word)
-			word = word.strip(' ')
-			j = j + 1
+	for i in range(len(words)):
+		if(words[i] != words[i].strip(' ')):
+			#print("Spaces in line" + str(j) + ":" + words[i])
+			words[i] = words[i].strip(' ')
 			continue
 
 	# Delete any leading or trailing whitspace in the words of the line
-
-	# print(str(j) + str(words))
+	print(str(j) + str(words))
 
 	j = j + 1
 
