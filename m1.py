@@ -15,7 +15,7 @@ for line in sys.stdin:
 	if(len(words) != 31):
 		print("Different number of attributes in line " + str(j))
 		j = j + 1
-		continue;
+		continue
 
 	# Check if any of the words in the line that should not contain any string, contains one
 	# If that occurs, skip the line	
@@ -24,10 +24,16 @@ for line in sys.stdin:
 	result2 = filter(r.match, str(words[7:30]))
 	if((result1 != "" or result2 != "") and j != 0):
 		print("Fila " + str(j) + " contiene string sin deberlo")
-		continue;
+		continue
+	
+	for word in words:
+		if(word != word.strip(' ')):
+			print("Spaces in line" + str(j) + ":" + word)
+			word = word.strip(' ')
+			j = j + 1
+			continue
 
 	# Delete any leading or trailing whitspace in the words of the line
-	map(str.strip, words)
 
 	# print(str(j) + str(words))
 
