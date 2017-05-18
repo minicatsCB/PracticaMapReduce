@@ -6,7 +6,7 @@ import sys
 row = 0
 # input comes from STDIN
 for line in sys.stdin:
-	print("Row: " + str(row))
+	#print("Row: " + str(row))
 	# Convert ['123', '234', '345'] to 123, 234, 345
 	for i in range(len(line)):
 		newLine = line.replace("'", "").replace("[", "").replace("]", "")
@@ -17,12 +17,22 @@ for line in sys.stdin:
 	
 	# Maybe this is not necessary because there is only one iteration through all the rows 
 	if(row == 0):
-		lst = [0] * (len(words))  # Empty list for storing the results of differents columns
+		lst = [0.0] * (len(words))  # Empty list for storing the results of different columns
+		header = [""] * (len(words))  # Empty list for storing the names of different columns
+		for x in range(len(words)):
+					header[x] = header[x] + words[x]  # Add columns
 	else:	
 		for i in range(len(words)):
-			lst[i] = lst[i] + int(words[i])
+			lst[i] = lst[i] + float(words[i])  # Add
 
-	print(lst)
+	row = row + 1
+
+for j in range(len(words)):
+	lst[j] = lst[j] / float((row))  # Average
+
+header = map(lambda s: s.strip(), header)  # Delete header carrage return
+for k in range(len(words)):
+	print(str(header[k]) + ": " + str(lst[k])) # Final results
 
 	'''
 	Trying to do this:
@@ -33,7 +43,4 @@ for line in sys.stdin:
 	|    col0   |   col1   |   col2   |   col3   | coln |   col30   |
 	-----------------------------------------------------------------
 	'''
-
-	row = row + 1
-
 
