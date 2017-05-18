@@ -8,6 +8,9 @@ cities = []
 numbers = []
 wordBefore = None
 traffic_num = 0
+most_traffic_street = None
+most_traffic_num = 0
+traffic_total = 0
 j = 0
 
 # input comes from STDIN
@@ -32,5 +35,12 @@ for line in sys.stdin:
 		
 	wordBefore = words[0]
 
-for i in range(len(cities) - 1):
-	print(str(i) + ':' + str(cities[i]) + ':' + str(traffic[i]))
+for i in range(len(traffic)):
+	if(traffic[i] > most_traffic_num):
+		most_traffic_street = cities[i]
+		most_traffic_num = traffic[i]
+	traffic_total += traffic[i]
+
+print("Trafico total:" + str(traffic_total))
+print("Calle con mas trafico:" + most_traffic_street.replace('[',''))
+print("Numero mayor de trafico en una calle:" + str(most_traffic_num))
