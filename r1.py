@@ -33,4 +33,4 @@ for line in sys.stdin:
 	wordBefore = words[0]
 
 for i in range(len(cities) - 1):
-	print(str(i) + ':' + str(cities[i]) + ':' + str(traffic[i]))
+	print(str(cities[i]) + ':' + str(traffic[i]))
