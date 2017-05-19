@@ -22,14 +22,16 @@ for line in sys.stdin:
 	r = re.compile("[a-zA-Z]")
 	result1 = filter(r.match, str(words[0:2]))
 	result2 = filter(r.match, str(words[7:30]))
-	if((result1 != "" or result2 != "") and j != 0):
-		#print("Fila " + str(j) + " contiene string sin deberlo")
+	is_float = re.findall("\d+\.\d+", str(words[7:30]))
+	if(((result1 != "" or result2 != "") or not(not is_float)) and j != 0):  # First line does not count
+		print("Fila " + str(j) + " contiene string o float sin deberlo")
 		j = j + 1
 		continue
 	
+	# Delete any leading or trailing whitspace in the words of the line
 	for i in range(len(words)):
 		if(words[i] != words[i].strip(' ')):
-			#print("Spaces in line" + str(j) + ":" + words[i])
+			#print("Spaces in line" + str(j) + ":" + word)
 			words[i] = words[i].strip(' ')
 			continue
 
