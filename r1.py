@@ -32,7 +32,7 @@ for line in sys.stdin:
 	
 	'''Recorremos la tupla por columnas'''
 	for i in range(len(words)):
-		'''Nos saltamos las 2 primeras columnas que tienen strings'''
+		'''Nos saltamos la 1 primera columna porque tiene string'''
 		if(i > 0):
 			'''Vamos sumando el trafico de cada horario'''
 			traffic_num += float(words[i].replace('[','').replace(']','')
