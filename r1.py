@@ -42,10 +42,5 @@ for line in sys.stdin:
 	'''Guardamos la calle actual en la calle anterior'''
 	wordBefore = words[0]
 
-<<<<<<< HEAD
 for i in range(len(streets) - 1):
 	print(str(streets[i]) + ':' + str(traffic[i]))
-=======
-for i in range(len(cities) - 1):
-	print(str(cities[i]) + ':' + str(traffic[i]))
->>>>>>> ea88aafb2f2864e274910425d97e4516fdbac16d
