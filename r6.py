@@ -127,6 +127,7 @@ for k in range(len(max_value)):
 		print("Max value of column " + str(k/3) + ": " + str(max_value[k]) + " (at index [" + str(max_value[k + 1]) +"][" + str(max_value[k + 2]) + "])")
 
 print("\n")
+header = map(lambda s: s.strip(), header)  # Delete header carrage return
 print(header)
 for k in range(len(max_value)):
 	# Cada 3 elementos es un trio (valor,row,col)
