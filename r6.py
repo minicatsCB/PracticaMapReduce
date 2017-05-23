@@ -102,7 +102,7 @@ max_value = [] # Guada el valor maximo de cada columna, junto con sus coordenada
 
 # Cada columna es una hora
 # Cada fila es una calle
-# Buscamos la mayor "fila" en cada columna, esto es, el mayor tráfico por calle (fila) en cada hora (columna)
+# Buscamos la mayor "fila" en cada columna, esto es, el mayor trafico por calle (fila) en cada hora (columna)
 # Miramos columna a columna, sacando el mayor valor
 # Damos tantas vueltas como columnas haya (suponemos que la matriz es cuadrada)
 for col in range(len(traffic_per_hours_in_street[0])):  # len = 15
@@ -111,8 +111,8 @@ for col in range(len(traffic_per_hours_in_street[0])):  # len = 15
 		# Me guardo los elementos de [][0]...[][n] cada vez
 		numbers_in_col.append(traffic_per_hours_in_street[row][col])
 	# De ahi calculo el maximo y guardo sus coordenadas
-	print(str(numbers_in_col) + "\n")
-	max_value.extend([max(numbers_in_col), row, col])
+	b = max(enumerate(numbers_in_col), key=operator.itemgetter(1))
+	max_value.extend([b[1], b[0], col])
 
 print(max_value)
 
