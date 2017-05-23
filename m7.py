@@ -38,7 +38,7 @@ for line in sys.stdin:
 	# Delete any leading or trailing whitspace in the words of the line
 	newList = []
 	if(j > 0):
-		newList.append(words[2])
+		newList.append(words[3:5])
 		newList.append(words[7:31])
 	print(str(newList))
 
