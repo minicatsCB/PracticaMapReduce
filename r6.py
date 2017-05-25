@@ -4,10 +4,10 @@ import operator
 from operator import itemgetter
 import sys
 
+header = ['12:00-1:00 AM', '1:00-2:00AM', '2:00-3:00AM', '3:00-4:00AM', '4:00-5:00AM', '5:00-6:00AM', '6:00-7:00AM', '7:00-8:00AM', '8:00-9:00AM', '9:00-10:00AM', '10:00-11:00AM', '11:00-12:00PM', '12:00-1:00PM', '1:00-2:00PM', '2:00-3:00PM', '3:00-4:00PM', '4:00-5:00PM', '5:00-6:00PM', '6:00-7:00PM', '7:00-8:00PM', '8:00-9:00PM', '9:00-10:00PM', '10:00-11:00PM', '11:00-12:00AM']
 row = 0
 wordBefore = None
 streets = []
-header = []
 traffic_per_hours_in_street = []  # List for storing the traffic each hour in each street
 traffic_in_street  = []  # List for storing the traffic per hour in a street
 traffic_per_street = []  # List for storing the max traffic per hour in a street
@@ -25,7 +25,7 @@ for line in sys.stdin:
 	
 	# Execute only once at the beginning
 	if(row == 0):
-		header = words[5:31]
+		pass
 	
 	# First, check if we are in Broadway street
 	if(words[0].lower() == "broadway"):
@@ -97,7 +97,6 @@ for k in range(len(max_value)):
 		pass
 
 #print("\n")
-header = map(lambda s: s.strip(), header)  # Delete header carrage return
 #print(header)
 for k in range(len(max_value)):
 	# Cada 3 elementos es un trio (valor,row,col)
