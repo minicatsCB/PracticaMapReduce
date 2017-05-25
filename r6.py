@@ -33,7 +33,7 @@ for line in sys.stdin:
 	if(words[0].lower() == "broadway"):
 		# If change
 		if(words[1] != str(wordBefore)):
-			print("Cambiando de " + str(wordBefore) + " a " + str(words[1]))
+			#print("Cambiando de " + str(wordBefore) + " a " + str(words[1]))
 			#print(words[0:2])
 			if(wordBefore != None):
 				traffic_per_hours_in_street.append(traffic_in_street)
@@ -58,42 +58,13 @@ for j in range(len(words[5:31])):
 	traffic_in_street[j] = traffic_in_street[j] + float(words[j + 5]) # Each hour correspond to a position in the array
 traffic_per_hours_in_street.append(traffic_in_street)
 		
-	
-'''	
-	elif(words[0] != str(wordBefore)):
-		#print("Cambio de " + str(wordBefore) + " a " + str(words[0]))
-		#print(words)
-		if(wordBefore != None):
-			traffic_per_street.append(max(enumerate(traffic_in_street), key=operator.itemgetter(1)))  # Choose the greatest one
-		traffic_in_street  = [0.0] * (len(words[5:31]))
-		for j in range(len(words[5:31])):
-			#(words[j + 5])
-			traffic_in_street[j] = traffic_in_street[j] + float(words[j + 5]) # Each hour correspond to a position in the array
-		streets.append(words[0])  # Add columns
-		wordBefore = words[0]
-	else:
-		for j in range(len(words[5:31])):
-			# print(words[j + 5])
-			traffic_in_street[j] = traffic_in_street[j] + float(words[j + 5]) # Each hour correspond to a position in the array
-	
-		#print(traffic_in_street)		
-		#print(traffic_per_street)
-
-	row = row + 1
-
-for j in range(len(words[5:31])):
-	#(words[j + 5])
-	traffic_in_street[j] = traffic_in_street[j] + float(words[j + 5]) # Each hour correspond to a position in the array
-	traffic_per_street.append(max(enumerate(traffic_in_street), key=operator.itemgetter(1)))  # Choose the greatest one
-
-'''
 #print(streets)
 #print("Heeeeeader: " + str(header))
 #print(traffic_per_street)
-print("-----------------------------------------------\n")
-for i in range(len(traffic_per_hours_in_street)):
-	print("\nTotal traffic in a street (by index)" + str(traffic_per_hours_in_street[i]))
-print("-----------------------------------------------\n")
+#print("-----------------------------------------------\n")
+#for i in range(len(traffic_per_hours_in_street)):
+#	print("\nTotal traffic in a street (by index)" + str(traffic_per_hours_in_street[i]))
+#print("-----------------------------------------------\n")
 
 # Get the greatest value for each hour
 #a = [[1,7,2],[5,8,4],[6,3,9]]
@@ -114,7 +85,7 @@ for col in range(len(traffic_per_hours_in_street[0])):  # len = 15
 	b = max(enumerate(numbers_in_col), key=operator.itemgetter(1))
 	max_value.extend([b[1], b[0], col])
 
-print(max_value)
+#print(max_value)
 
 #print("Numero horas: " + str(len(traffic_per_hours_in_street[0])))
 #print("Numero original horas: " + str(len(header)))
@@ -124,16 +95,16 @@ print(max_value)
 for k in range(len(max_value)):
 	# Cada 3 elementos es un trio (valor,row,col)
 	if(k%3 == 0):  # len(a[0]) = 3
-		print("Max value of column " + str(k/3) + ": " + str(max_value[k]) + " (at index [" + str(max_value[k + 1]) +"][" + str(max_value[k + 2]) + "])")
+		#print("Max value of column " + str(k/3) + ": " + str(max_value[k]) + " (at index [" + str(max_value[k + 1]) +"][" + str(max_value[k + 2]) + "])")
+		pass
 
-print("\n")
+#print("\n")
 header = map(lambda s: s.strip(), header)  # Delete header carrage return
-print(header)
+#print(header)
 for k in range(len(max_value)):
 	# Cada 3 elementos es un trio (valor,row,col)
 	if(k%3 == 0):  # len = 15
-		print(max_value[k + 1])
+		#print(max_value[k + 1])
 		#print("Max value of column " + str(k/3) + ": " + str(max_value[k]) + " (at index [" + str(max_value[k + 1]) +"][" + header[max_value[k + 2]] + "])")
 		print("Max street of hour " + header[max_value[k + 2]] + ": " + streets[max_value[k + 1]])
-
-
+		
