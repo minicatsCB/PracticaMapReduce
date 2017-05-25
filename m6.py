@@ -37,8 +37,9 @@ for line in sys.stdin:
 
 	#print(str(j) + str(words))  # Print line number and line content
 	# 31 and no 30, because of the \n character
-	words[2:31] = map(lambda s: s.strip(), words[2:31])  # Delete carriage return
-	print(words[2:31])
+	if(j > 0):
+		words[2:31] = map(lambda s: s.strip(), words[2:31])  # Delete carriage return
+		print(words[2:31])
 
 	j = j + 1
 
