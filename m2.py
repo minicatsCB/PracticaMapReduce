@@ -23,7 +23,6 @@ for line in sys.stdin:
 	result1 = filter(r.match, str(words[0:2]))
 	result2 = filter(r.match, str(words[7:30]))
 	is_float = re.findall("\d+\.\d+", str(words[7:30]))
-	has_return = re.findall("\n+", str(words[7:30]))
 	if(((result1 != "" or result2 != "") or not(not is_float)) and j != 0):  # First line does not count
 		#print("Fila " + str(j) + " contiene string o float sin deberlo")
 		j = j + 1
