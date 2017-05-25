@@ -12,7 +12,6 @@ traffic_per_hours_in_street = []  # List for storing the traffic each hour in ea
 traffic_in_street  = []  # List for storing the traffic per hour in a street
 traffic_per_street = []  # List for storing the max traffic per hour in a street
 incoming_street = 0;
-save_header = True
 # input comes from STDIN
 for line in sys.stdin:
 	#print("Row: " + str(row))
@@ -25,9 +24,8 @@ for line in sys.stdin:
 	#print(words)
 	
 	# Execute only once at the beginning
-	if(save_header == True):
+	if(row == 0):
 		header = words[5:31]
-		save_header = False
 	
 	# First, check if we are in Broadway street
 	if(words[0].lower() == "broadway"):
@@ -51,7 +49,7 @@ for line in sys.stdin:
 				traffic_in_street[j] = traffic_in_street[j] + float(words[j + 5]) # Each hour correspond to a position in the array
 			#print("Traffic in street: " + str(traffic_in_street))
 
-		row = row + 1
+	row = row + 1
 
 for j in range(len(words[5:31])):
 	# print(words[j + 5])
