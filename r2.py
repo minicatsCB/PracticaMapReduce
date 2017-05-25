@@ -19,15 +19,15 @@ row = 0
 # input comes from STDIN
 for line in sys.stdin:
 	#print("Row: " + str(row))
-	# Convert ['123', '234', '345'] to 123, 234, 345
+	# Remove square braquets and single quotes
 	for i in range(len(line)):
 		newLine = line.replace("'", "").replace("[", "").replace("]", "")
 
-	# Split by comma
+	# Separate columns
 	words = newLine.split(",")
 	#print(words)
 	
-	if(row != 0 and not(words[0] == "12:00-1:00 AM")):
+	if(row != 0):
 		for i in range(len(words)):
 			lst[i] = lst[i] + float(words[i])  # Add the entire column
 
