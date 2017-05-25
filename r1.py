@@ -3,9 +3,6 @@
 from operator import itemgetter
 import sys
 
-traffic = []
-streets = []
-numbers = []
 wordBefore = None
 traffic_num = 0
 j = 0
@@ -18,14 +15,10 @@ for line in sys.stdin:
 	
 	'''Si el nombre de la calle es diferente'''
 	if(words[0] != str(wordBefore)):
-		#print(words[0] + ':' + str(wordBefore))
-		'''Guardamos el nombre de la calle a la lista de calles'''
-		streets.append(words[0])
+		print(str(wordBefore) + ':' + str(traffic_num))
 		'''Nos saltamos la primera iteracion porque todavia no tenemos ninguna 
 		calle anterior guardada'''
 		if(j > 0):
-			'''Guardamos trafico calculado en la lista de traficos'''
-			traffic.append(traffic_num)
 			'''Reiniciamos el calculo para la calle siguiente'''
 			traffic_num = 0
 		j = j + 1
@@ -42,5 +35,4 @@ for line in sys.stdin:
 	'''Guardamos la calle actual en la calle anterior'''
 	wordBefore = words[0]
 
-for i in range(len(streets) - 1):
-	print(str(streets[i]) + ':' + str(traffic[i]))
+print(str(wordBefore) + ':' + str(traffic_num))
