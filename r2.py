@@ -27,7 +27,7 @@ for line in sys.stdin:
 	words = newLine.split(",")
 	#print(words)
 	
-	if(row != 0):	
+	if(row != 0 and not(words[0] == "12:00-1:00 AM")):
 		for i in range(len(words)):
 			lst[i] = lst[i] + float(words[i])  # Add the entire column
 
